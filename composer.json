@@ -1,0 +1,23 @@
+{
+    "name": "shwrm/opineo-sdk-php",
+    "description": "PHP SDK for Opineo",
+    "type": "project",
+    "require": {
+        "php": "^7.1",
+        "guzzlehttp/guzzle": "^6.3",
+        "beberlei/assert": "^2.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shwrm\\Opineo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\Shwrm\\Opineo\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    }
+}
