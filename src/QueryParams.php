@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Shwrm\Opineo;
 
@@ -23,7 +25,7 @@ class QueryParams
      */
     private $order;
 
-    public function __construct($email, int $waitDays = 5, string $order = null)
+    public function __construct(string $email, int $waitDays = 5, string $order = null)
     {
         Assertion::email($email);
 

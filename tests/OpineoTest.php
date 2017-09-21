@@ -1,11 +1,14 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Tests\Shwrm\Opineo;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\RequestOptions;
 use PHPUnit\Framework\TestCase;
-use Shwrm\Opineo\Opineo;
+use Shwrm\Opineo\OpineoClient;
 use Shwrm\Opineo\QueryParams;
 
 class OpineoTest extends TestCase
@@ -19,9 +22,9 @@ class OpineoTest extends TestCase
             ->method('request')
             ->with(
                 'POST',
-                new Uri(Opineo::URI),
+                new Uri(OpineoClient::URI),
                 [
-                    'query' => [
+                    RequestOptions::QUERY => [
                         'login' => 'login123',
                         'pass'  => 'pass345',
                         'type'  => 'php',
@@ -32,7 +35,7 @@ class OpineoTest extends TestCase
             )
         ;
 
-        $tested = new Opineo($client, 'login123', 'pass345');
+        $tested = new OpineoClient($client, 'login123', 'pass345');
         $tested->send(new QueryParams('aneta@test.pl'));
     }
 }

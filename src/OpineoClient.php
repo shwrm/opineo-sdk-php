@@ -1,11 +1,14 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace Shwrm\Opineo;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\RequestOptions;
 
-class Opineo
+class OpineoClient
 {
     const URI = 'https://www.wiarygodneopinie.pl/gate.php';
 
@@ -42,7 +45,7 @@ class Opineo
             'POST',
             new Uri(self::URI),
             [
-                'query' => $params,
+                RequestOptions::QUERY => $params,
             ]
         );
     }
