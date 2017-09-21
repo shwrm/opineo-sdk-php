@@ -2,7 +2,6 @@
 
 namespace Shwrm\Opineo;
 
-use Assert\Assertion;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Uri;
 
