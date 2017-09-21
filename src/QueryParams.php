@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Shwrm\Opineo;
 
@@ -23,18 +23,16 @@ class QueryParams
      */
     private $order;
 
-    public function __construct($email, $waitDays = 5, $order = null)
+    public function __construct($email, int $waitDays = 5, string $order = null)
     {
         Assertion::email($email);
-        Assertion::integer($waitDays);
-        Assertion::nullOrString($order);
 
         $this->email    = $email;
         $this->waitDays = $waitDays;
         $this->order    = $order;
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         $return = [
             'type'  => 'php',

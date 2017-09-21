@@ -1,8 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace Shwrm\Opineo;
+namespace Tests\Shwrm\Opineo;
 
 use PHPUnit\Framework\TestCase;
+use Shwrm\Opineo\QueryParams;
 
 class QueryParamsTest extends TestCase
 {

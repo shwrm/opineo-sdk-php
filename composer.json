@@ -14,7 +14,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Test\\Shwrm\\Opineo\\": "tests/"
+            "Tests\\Shwrm\\Opineo\\": "tests/"
         }
     },
     "require-dev": {

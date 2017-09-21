@@ -1,10 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace Shwrm\Opineo;
+namespace Tests\Shwrm\Opineo;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Uri;
 use PHPUnit\Framework\TestCase;
+use Shwrm\Opineo\Opineo;
+use Shwrm\Opineo\QueryParams;
 
 class OpineoTest extends TestCase
 {

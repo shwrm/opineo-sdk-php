@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Shwrm\Opineo;
 
@@ -8,7 +8,7 @@ use GuzzleHttp\Psr7\Uri;
 
 class Opineo
 {
-    const URI = 'http://www.wiarygodneopinie.pl/gate.php';
+    const URI = 'https://www.wiarygodneopinie.pl/gate.php';
 
     /**
      * @var ClientInterface
@@ -25,11 +25,8 @@ class Opineo
      */
     private $password;
 
-    public function __construct(ClientInterface $client, $login, $password)
+    public function __construct(ClientInterface $client, string $login, string $password)
     {
-        Assertion::string($login);
-        Assertion::string($password);
-
         $this->client   = $client;
         $this->login    = $login;
         $this->password = $password;
