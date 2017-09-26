@@ -28,7 +28,7 @@ class OpineoTest extends TestCase
                         'login' => 'login123',
                         'pass'  => 'pass345',
                         'type'  => 'php',
-                        'email' => 'aneta@test.pl',
+                        'email' => 'test@example.com',
                         'queue' => 5,
                     ],
                 ]
@@ -36,6 +36,6 @@ class OpineoTest extends TestCase
         ;
 
         $tested = new OpineoClient($client, 'login123', 'pass345');
-        $tested->send(new QueryParams('aneta@test.pl'));
+        $tested->send(new QueryParams('test@example.com'));
     }
 }

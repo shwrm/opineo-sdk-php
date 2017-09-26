@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace Shwrm\Opineo;
 
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\RequestOptions;
+use Shwrm\Opineo\Exception\AuthenticationException;
+use Shwrm\Opineo\Exception\InvitationsDisabledException;
 
 class OpineoClient
 {
@@ -41,13 +44,18 @@ class OpineoClient
         $params['login'] = $this->login;
         $params['pass']  = $this->password;
 
-        return $this->client->request(
+        try { $this->client->request(
             'POST',
             new Uri(self::URI),
             [
                 RequestOptions::QUERY => $params,
             ]
-        );
+        );} catch (ClientException $e) {
+            if (404 == $e->getResponse()->getStatusCode()) {
+                throw new AuthenticationException();
+            } elseif (403 == $e->getResponse()->getStatusCode()) {
+                throw new InvitationsDisabledException();
+            }
+        }
     }
-
 }
