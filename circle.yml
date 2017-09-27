@@ -7,5 +7,6 @@ dependencies:
     - echo "date.timezone = "Europe/Warsaw"" > /opt/circleci/php/$(phpenv global)/etc/conf.d/date.ini
 test:
   override:
+    - composer validate --strict
     - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
     - vendor/bin/phpunit --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml tests
