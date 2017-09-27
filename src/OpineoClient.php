@@ -44,13 +44,15 @@ class OpineoClient
         $params['login'] = $this->login;
         $params['pass']  = $this->password;
 
-        try { $this->client->request(
-            'POST',
-            new Uri(self::URI),
-            [
-                RequestOptions::QUERY => $params,
-            ]
-        );} catch (ClientException $e) {
+        try {
+            $this->client->request(
+                'POST',
+                new Uri(self::URI),
+                [
+                    RequestOptions::QUERY => $params,
+                ]
+            );
+        } catch (ClientException $e) {
             if (404 == $e->getResponse()->getStatusCode()) {
                 throw new AuthenticationException();
             } elseif (403 == $e->getResponse()->getStatusCode()) {
